@@ -11,7 +11,7 @@ module ActionDispatch
           subdomain_constrain = route.app.instance_variable_get("@constraints").to_a.find { |constraint| constraint.respond_to?(:subdomain)}
           
           # add subdomain option if subdomain constrain is not regexp
-          options[:subdomain] ||= subdomain_constrain.subdomain.to_s if subdomain_constrain && !subdomain_constrain.regexp?
+          options[:subdomain] ||= subdomain_constrain.subdomain if subdomain_constrain && !subdomain_constrain.regexp?
         end
         
         # remove subdomain (it will be rewrited to host)
